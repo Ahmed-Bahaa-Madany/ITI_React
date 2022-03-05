@@ -13,12 +13,6 @@ export default function Navbar(){
                         <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/">Home</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/movie">Movies</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/movie-details">MovieDetails</Link>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -1,16 +1,30 @@
-import React, { useEffect } from "react"
-import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min"
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { axiosInstance } from "../Network/axiosConfig";
 
 export default function Home(){
-    const history = useHistory();
-    const location = useLocation();
-    const params = useParams();
+    const [movies, SetMovies] = useState([]);
 
-    return(
+    useEffect(() => {
+    axiosInstance
+        .get("popular?api_key=521babd36b4e171155f7d0cbc7032f74")
+        .then((res) => SetMovies(res.data.results))
+        .catch((err) => console.log(err));
+    }, []);
+    return (
         <>
-        <div> Home</div>
-        <div onClick={() => history.push("/movie-details")}>MovieDetails</div>
+        <div>
+            users
+            <ul>
+            {movies.map((movie) => {
+                return (
+                <Link to={`/movie-details/${movie.id}`} key={movie.id}>
+                    <li>{movie.title}</li>
+                </Link>
+                )
+            })}
+            </ul>
+        </div>
         </>
-    )
+    );
 }

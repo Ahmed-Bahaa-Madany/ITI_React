@@ -1,7 +1,6 @@
 import Header from './components/navbar/navbar'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
-import Movies from './pages/Movies'
 import NotFound from './pages/NotFound'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +13,6 @@ function App() {
       <div className="container">
         <Switch>
         <Route path={'/'} exact component={Home}/>
-        <Route path={'/movie'} exact component={Movies}/>
         <Route path={'/movie-details/:id'} exact component={MovieDetails}/>
         <Route path={'*'} exact component={NotFound}/>
         </Switch>
