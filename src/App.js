@@ -10,13 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <div className="container">
-        <Switch>
-        <Route path={'/'} exact component={Home}/>
-        <Route path={'/movie-details/:id'} exact component={MovieDetails}/>
-        <Route path={'*'} exact component={NotFound}/>
-        </Switch>
-      </div>
+      <Switch>
+      <Route path={'/'} exact component={Home}/>
+      <Route path={'/movie-details/:id'} exact component={MovieDetails}/>
+      <Route path={'*'} exact component={NotFound}/>
+      </Switch>
     </BrowserRouter>
   );
 }
